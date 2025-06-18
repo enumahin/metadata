@@ -9,7 +9,7 @@ public abstract class AbstractionContainerBaseTest {
     static final MySQLContainer<?> MY_SQL_CONTAINER;
 
     static {
-        MY_SQL_CONTAINER = new MySQLContainer<>("mysql:latest")
+        MY_SQL_CONTAINER = new MySQLContainer<>("mysql:8.0")
                 .withDatabaseName("test_db")
                 .withUsername("tester")
                 .withPassword("testing");

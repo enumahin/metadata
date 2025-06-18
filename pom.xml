@@ -10,8 +10,9 @@
     </parent>
     <groupId>com.alienworkspace.cdr</groupId>
     <artifactId>metadata</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>metadata</name>
+    <packaging>jar</packaging>
     <description>Metadata MicroService</description>
     <url/>
     <licenses>
@@ -39,7 +40,7 @@
         <dependency>
             <groupId>com.github.enumahin</groupId>
             <artifactId>data</artifactId>
-            <version>v1.0.0</version>
+            <version>v1.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -191,6 +192,9 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <image>
+                        <name>enumahin/${project.artifactId}-microservice:${project.version}</name>
+                    </image>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
