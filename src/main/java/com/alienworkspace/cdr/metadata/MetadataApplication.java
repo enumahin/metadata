@@ -1,5 +1,6 @@
 package com.alienworkspace.cdr.metadata;
 
+import com.alienworkspace.cdr.metadata.config.AppConfig;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
@@ -7,6 +8,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 /**
  * Main application class for the Demographic module.
@@ -40,6 +42,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
                 url = "https://enumahin.com/cdr-page"
         )
 )
+@EnableConfigurationProperties(value = AppConfig.class)
 public class MetadataApplication {
 
     /**
