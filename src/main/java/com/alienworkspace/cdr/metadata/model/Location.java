@@ -12,6 +12,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
@@ -53,6 +54,7 @@ public class Location extends AuditTrail {
     @Column(name = "location_geo_code")
     private String locationGeoCode;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "community_id", nullable = false)
     private Community community;
