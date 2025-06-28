@@ -60,3 +60,10 @@ info:
     name: "metadata"
     description: "Metadata Microservice"
     version: "1.0.0"
+
+logging:
+  level:
+    com:
+      alienworkspace:
+        cdr:
+          metadata: DEBUG

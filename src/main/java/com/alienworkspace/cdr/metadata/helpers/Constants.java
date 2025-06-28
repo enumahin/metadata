@@ -9,7 +9,7 @@ public final class Constants {
 
     private Constants() {}
 
-    public static final String BASE_URL = "/api/metadata";
+    public static final String BASE_URL = "/api";
     public static final String CONFIG_BASE_URL = BASE_URL + "/configs";
 
     public static final String COUNTRY_BASE_URL = BASE_URL + "/countries";
