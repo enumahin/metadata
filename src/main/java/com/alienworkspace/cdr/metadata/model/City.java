@@ -13,6 +13,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -64,6 +65,7 @@ public class City extends AuditTrail {
     @Column(name = "city_phone_code")
     private Integer cityPhoneCode;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "county_id", nullable = false)
     private County county;
