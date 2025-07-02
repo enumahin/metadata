@@ -6,6 +6,10 @@ spring:
   profiles:
     active:
       - "prod"
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
 
   datasource:
     url: jdbc:mysql://localhost:3306/metadata?createDatabaseIfNotExist=true
@@ -67,3 +71,28 @@ logging:
       alienworkspace:
         cdr:
           metadata: DEBUG
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 10
+        permittedNumberOfCallsInHalfOpenState: 2
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+
+  retry:
+    instances:
+      getAppConfig: # name of the retry
+        maxAttempts: 5
+        waitDuration: 100
+        ignore-exceptions:
+          - com.alienworkspace.cdr.metadata.exception.ResourceNotFoundException
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+      default: # name of the retry, if we want to have multiple retry configurations in our microservice
+        maxAttempts: 3
+        waitDuration: 100
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+
+
